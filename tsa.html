@@ -50,7 +50,7 @@
 
                     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="button1"><a href="index.php">Home</a></li>
+                            <li class="button1"><a href="index.html">Home</a></li>
                             <li class=""><a href="#school1">Our School</a></li>
                             <li class=""><a href="#chapter1">TSA Chapter</a></li>
                             <li class=""><a href="#contact">Contact</a></li>
@@ -59,9 +59,6 @@
                 </div><!-- container -->
             </nav>
         </section>
-        
-        
-        
        
       <section id="tsa-hero" data-type="background" data-speed="3">
           <div class="header-text">
@@ -236,91 +233,8 @@
 
                   <h1>Send Us An Email!</h1>
 
-                  <?php 
-
-// Check for header injections
-function has_header_injection($str) {
-    return preg_match ( "/[\r\n]/", $str );
-}
-
-if(isset ($_POST['contact_submit'])) {
-
-    $name	= trim($_POST['name']);
-    $email	= trim($_POST['email']);
-    $msg	= $_POST['message'];
-
-    // check to see if name or email have header injections
-    if (has_header_injection($name) || has_header_injection($email)){
-
-        die();			
-
-    } ?>
-
-              <?php 
-
-    if ( !$name || !$email || !$msg ) {
-
-        echo '<h3 class="error">All fields are required</h3><br><br><p align="center">Are you sure you filled out each field?</p><br><h1><a href="tsa.php" class="button">&laquo Go back and try again</a></h1><br><br><br><br><br><br>
-
-                        
-
-';
-        exit;
-
-    }	?>
-
-                  <?php
-
-    // add the recipient email to a variable
-    $to = "levi@leviv.co";
-
-    // Create a subject
-    $subject = "$name sent you an email via your webmaster contact form";
-
-    // construct your message
-    $message .= "Name: $name\r\n";
-    $message .= "Email: $email\r\n\r\n";
-    $message .= "Message:\r\n$msg";
-
-
-
-    $message = wordwrap(message, 72);
-
-    // set the mail header
-    $headers = "MIME=Version: 1.0\r\n";
-    $headers .= "Content-type: text/plain; charset=iso-8859-1\r\n";
-    $headers .= "\r\n\r\nFrom: " . $name . "\r\n\r\n " . $msg . "\r\n\r\n <" . $email . "> \r\n\r\n";
-    $headers .=	"X-Priority: 1\r\n";
-    $headers .=	"X-MSMail-Priority: high\r\n\r\n";
-
-    // Send the Email
-    mail( $to, $subject, $message, $headers );			
-
-                  ?>
-
-                  <!-- Show Success message -->
-                  <h2>Thanks for contacting Us!</h2><br><br><br>
-                  <p align="center">Please allow 24 hours for a response</p><br><br>
-                  <p><a href="index.php" class="button block">&laquo; Go to Home Page</a></p>
-
-                  <?php } else { ?>
-
-                  <form method="post" action="" id="contact-form">
-
-                      <label for="name">Your Name</label>
-                      <input type="text" id="name" name="name" placeholder="Johnny Appleseed">
-
-                      <label for="email">Your Email</label>
-                      <input type="email" id="email" name="email" placeholder="Johnny@example.com">
-
-                      <label for="message">and your message</label>
-                      <textarea id="message" name="message" placeholder="Your website is great!"></textarea>
-                      <br>
-
-                      <input type="submit" class="button2 next" name="contact_submit" value="Send!">
-
-                  </form>
-                  <?php } ?>
+                  <a href="mailto:villarreallevi@gmail.com"></a>
+            
                   <br>
                   <br>
                   <br>
